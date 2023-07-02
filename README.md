@@ -1,7 +1,7 @@
 # Movie-App
 Move App made with React
 # Screenshot
-![ScreenShot](screenshot.png)
+![ScreenShot](https://github.com/Buddha0/Movie-App/blob/master/public/screenshot.png)
 # What I Used?
 - React Hooks
 - React Router DOM
