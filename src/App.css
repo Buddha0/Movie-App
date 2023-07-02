@@ -1,0 +1,447 @@
+@import url("https://fonts.googleapis.com/css2?family=Bakbak+One&family=Lilita+One&family=Open+Sans:wght@300;400&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+
+  color: white;
+}
+p {
+  font-size: 1.8rem;
+  line-height: 3rem;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: black;
+}
+
+nav {
+  width: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  height: 10vh;
+  align-items: center;
+  position: relative;
+  font-size: 1.6rem;
+}
+
+.fa-bars {
+  cursor: pointer;
+  display: none;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  width: 20%;
+  justify-content: space-evenly;
+}
+
+form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding:5px 10px;
+}
+
+.fa-magnifying-glass{
+  color:black
+}
+
+input{
+  color:black;
+  border:none;
+  outline: none;
+}
+span {
+  color: yellow;
+}
+
+.active {
+  color: yellow;
+}
+
+.links {
+  text-decoration: none;
+}
+.section {
+  background-color: black;
+}
+
+.hero-section {
+  width: 100%;
+  height: 80vh;
+  position: relative;
+}
+
+.hero-section-background {
+  width: 100%;
+  height: 80vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
+}
+
+.hero-section-description {
+  position: absolute;
+  text-align: left;
+  width: 50%;
+  bottom: 5rem;
+  left: 4rem;
+  font-size: 1.6rem;
+}
+
+.hero-section-heading {
+  margin: 1rem 0rem;
+  font-size: 5rem;
+}
+
+.image-top {
+  object-fit: cover;
+  object-position: top;
+  opacity: 0.4;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 25rem);
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.center {
+  text-align: center;
+}
+.detail {
+  background-color: rgb(245 197 24);
+  color: black;
+  padding: 2px 10px;
+}
+
+.max-width {
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 2rem 0rem;
+}
+
+.heading {
+  font-size: 3rem;
+  margin: 2rem 0rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.cards {
+  width: 240px;
+  height: 320px;
+  position: relative;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.image-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.cards-description {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding: 5px;
+  height: 30%;
+  background: linear-gradient(rgba(12, 12, 12, 0.6), rgba(0, 0, 0, 1));
+  font-size: 1.6rem;
+}
+
+.title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.pagination {
+  padding: 1rem 0rem;
+  margin: auto;
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.pagination-btn {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(34, 34, 34);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.pagination-section {
+  width: 100%;
+  background-color: black;
+}
+
+.card-details-section {
+  width: 100%;
+  min-height: 50vh;
+  position: relative;
+}
+.card-info-background {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+}
+
+.linear-gradient-overlay {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.card-poster {
+  width: 250px;
+  height: 350px;
+}
+
+.card-skeleton{
+  width:250px;
+  height:350px;
+  background-color: grey;
+}
+
+.skeleton{
+  background-color: grey;
+}
+
+.card-description {
+  width: 50%;
+  font-size: 1.6rem;
+}
+
+.sub-para {
+  margin: 1rem 0rem;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.829);
+}
+.overview {
+  font-size: 2rem;
+}
+.description {
+  font-size: 1.6rem;
+  margin: 1rem 0rem;
+  line-height: 3rem;
+}
+
+.absolute {
+  z-index: 9999;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.row {
+  display: flex;
+  gap: 2rem;
+}
+
+.status {
+  display: flex;
+  gap: 2rem;
+  margin: 1rem 0rem;
+}
+
+.genres {
+  display: flex;
+  gap: 1rem;
+}
+
+.similar-section {
+  margin-top: 10rem;
+}
+
+@media only screen and (max-width: 700px) {
+  html {
+    font-size: 50%;
+  }
+
+  .cards {
+    width: 210px;
+    height: 250px;
+  }
+
+  .hero-section-description {
+    width: 80%;
+  }
+
+  .fa-bars {
+    display: block;
+  }
+
+  nav {
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+
+  .ul-links {
+    z-index: 99999;
+    position: absolute;
+    top: -999px;
+    right: 0;
+    width: 40%;
+    background-color: rgb(0, 0, 0);
+    flex-direction: column;
+    text-align: right;
+    transition: 0.3s ease;
+  }
+
+  .ul-show {
+    top: 110%;
+  }
+
+  li {
+    padding: 0.5rem 1rem;
+    width: 100%;
+  }
+
+  li:hover {
+    background-color: rgb(14, 13, 13);
+  }
+
+  .row {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .absolute {
+    z-index: 9999px;
+    position: static;
+    width: 90%;
+  }
+
+  .card-description {
+    width: 100%;
+    text-align: center;
+  }
+
+  .status {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .heading {
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .title{
+    font-size: 1.8rem;
+  }
+  .heading{
+    font-size: 2.2rem;
+  }
+  .cards {
+    width: 190px;
+    height: 250px;
+  }
+
+  .max-width{
+    width: 100%;;
+  }
+
+
+ 
+}
+
+
+@media only screen and (max-width: 420px) {
+  .ul-links {
+    width: 80%;
+  }
+  html {
+    font-size: 45%;
+  }
+   .heading{
+    font-size: 1.6rem;
+  }
+  .cards {
+    width: 150px;
+    height: 200px;
+
+  }
+.hero-section-description{
+  width:90%
+}
+  .hero-section{
+    height:70vh;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .ul-links {
+    width: 80%;
+  }
+  .title{
+    font-size: 1.6rem;
+  }
+  .heading{
+    font-size: 1.8rem;
+  }
+  html {
+    font-size: 45%;
+  }
+  .cards {
+    width: 150px;
+    height: 200px;
+  }
+
+  .max-width{
+    width:100%;
+  }
+
+  .hero-section-description{
+    width:90%
+  }
+    .hero-section{
+      height:70vh;
+    }
+}
