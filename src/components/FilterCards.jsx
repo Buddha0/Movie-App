@@ -2,7 +2,7 @@ import Cards from "./Cards"
 export default function FilterCards({data,title}){
     return(
         <>
-            <div className='max-width'>
+          
                 <div className='column'>
                     <h1 className='heading center'>{title}</h1>
                     <div className="grid">
@@ -11,7 +11,7 @@ export default function FilterCards({data,title}){
                         ))}
                     </div>
                 </div>
-            </div>
+         
         </>
     )
 }

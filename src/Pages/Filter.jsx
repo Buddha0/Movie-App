@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import axios from "axios";
 import FilterCards from "../components/FilterCards"
+import { fetchApiData } from "../FetchApiData";
 export default function Filter() {
     const { name } = useParams()
     const [searchedData, setSearchedData] = useState([])
@@ -9,29 +9,35 @@ export default function Filter() {
 
 
     async function fetchData() {
-        const options = {
-            method: 'GET',
-            headers: {
-                accept: 'application/json',
-                Authorization:
-                    'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlOTE0YTFkZjczNWQ2YzUwMDZkMmIxMWJmYjM4NjU3YyIsInN1YiI6IjY0ODgxNjBlOTkyNTljMDExYzQxYmJhMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1n88x9JoBFrZS6epR_O1HlAj5jauWLKU7yOKVOkGnig',
-            },
-        };
-        const searchedDataApi = await axios.get(
-            `https://api.themoviedb.org/3/search/movie?query=${name}&include_adult=false&language=en-US&page=1`,
-            options
-        );
-        setSearchedData(searchedDataApi.data.results);
-        setLoading(false)
+        setLoading(true)
+        try{
+            fetchApiData(`/search/movie?query=${name}&include_adult=false&language=en-US&page=1`).
+            then((data)=>{
+                setSearchedData(data.results)
+                setLoading(false)
+
+            })
+            
+        }
+        catch(error){
+            console.log(error)
+        }
+      
     }
 
     function DataFoundOrNot() {
 
         if (loading) {
-            return null
+            return         <div className="dead-center"> <spam className = "loader"></spam></div>
+    
+      
         }
-        if (searchedData.length === 0) {
-            return <h1>No Data found</h1>; // Return the error message directly
+        if (searchedData.length <=0) {
+            return (
+                <div className="dead-center">
+                    <h1>{`Sorry no result found for ${name}`}</h1>
+                </div>
+            ); // Return the error message directly
         }
         return null;
     }

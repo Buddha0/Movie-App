@@ -2,42 +2,46 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 
-
 export default function Cards({ datas, index }) {
     const [img, setImg] = useState()
-    const imageUrl = `https://image.tmdb.org/t/p/original/${datas.poster_path ? datas.poster_path : datas.backdrop_path}`;
-    useEffect(()=>{
+    const imageUrl = `https://image.tmdb.org/t/p/original/${datas?.poster_path ? datas?.poster_path : datas?.backdrop_path}`;
+    useEffect(() => {
         const image = new Image()
         image.src = imageUrl
-        image.onload= ()=>{
-            setImg(image)
+        image.onload = () => {
+            setTimeout(() => {
+                setImg(image)
+            }, 2000)
+
         }
 
-    },[imageUrl])
+    }, [imageUrl])
 
     function scroolToTop() {
         window.scrollTo(0, 0)
     }
 
 
-
     return (
         <>
-            {img ? (
+            {img && datas ? (
                 <Link to={`/cardsInfo/${datas.id}`} className="links" onClick={scroolToTop}>
                     <div className='cards' key={index}>
-                        <div className='image-container'>
-                            <img src={img.src} alt={datas.original_title} />
-                        </div>
+                        <img src={img.src} alt={datas.original_title} className="card-img" />
                         <div className="cards-description">
-                            <p className='title'>{datas.original_title}</p>
+                            <p className='card-title'>{datas.original_title}</p>
                         </div>
                     </div>
                 </Link>) : (
-                <div className='cards card-skeleton' key={index}>
-                    <div className='image-container'></div>
-                    <div className="cards-description"></div>
+
+                <div className='cards' key={index}>
+                  <div className="skeleton-image"></div>
+                    <div className="cards-description">
+                        <p className='card-title'></p>
+                    </div>
                 </div>
+
+
             )
             }
         </>

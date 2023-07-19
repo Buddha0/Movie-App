@@ -11,7 +11,7 @@ function SearchComponent() {
   
       function handleSubmit(e) {
         e.preventDefault();
-        navigate(`/filter/${searchValue}`);
+        navigate(`/search/${searchValue}`);
         setSearchValue("")
        
       }

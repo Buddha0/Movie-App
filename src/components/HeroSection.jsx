@@ -13,6 +13,7 @@ export default function HeroSection({ popularData }) {
                 transitionTime={500}
                 interval={5000}
                 infiniteLoop={true}
+                swipeable={false}
             >
                 {popularData?.map((datas) => (
                     <Link to={`/cardsInfo/${datas.id}`} key={datas.id}>
@@ -27,6 +28,7 @@ export default function HeroSection({ popularData }) {
                                 />
 
                             </div>
+                            <div className="linear-gradeint-overlay"></div>
                             <div className="hero-section-description">
                                 <h1 className="hero-section-heading">{datas.title}</h1>
                                 <p>{datas.overview.substring(0, 200)}...</p>
