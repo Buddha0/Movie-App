@@ -1,12 +1,14 @@
-import HeroSection from "../components/HeroSection"
-import PopularCards from "../components/PopularCards"
-import Upcoming from "../components/Upcoming"
-export default function Home({popularData,upcomingData,responsive }) {
+import HeroSection from "../components/HomeComponents/HeroSection"
+import PopularCards from "../components/HomeComponents/PopularCards"
+import NowPlayingCards from "../components/HomeComponents/NowPlayingCards"
+
+
+export default function Home({popularData,responsive, nowPlayingData }) {
 
     return (
         <>
-            <HeroSection popularData={popularData} />
-            <Upcoming  responsive={responsive} />
+            <HeroSection popularData={popularData.slice(0,6)} />
+            <  NowPlayingCards responsive={responsive}  nowPlayingData  = { nowPlayingData }/>
             <PopularCards popularData={popularData} responsive={responsive} />
         </>
     )

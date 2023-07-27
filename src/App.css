@@ -73,9 +73,9 @@ nav {
   opacity: 1;
   pointer-events: fill;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   flex-wrap: wrap;
-  border-radius: 12px;
+
   gap: 2rem;
   transition: 0.5s ease-in-out;
 }
@@ -101,7 +101,7 @@ nav {
 nav ul {
   display: flex;
   list-style: none;
-  width: 30%;
+  width: 50%;
   justify-content: space-evenly;
 }
 
@@ -173,13 +173,14 @@ span {
 
 .image-top {
   object-fit: cover;
+  object-position: top;
   opacity: 1;
 }
 
 .row {
   width: 100%;
   display: flex;
-  margin: 1rem 0rem;
+  margin: 3rem 0rem;
 }
 
 .grid {
@@ -231,6 +232,7 @@ span {
   width: 100%;
   height: 350px;
   display: block;
+  object-position: top;
 }
 
 .skeleton-image {
@@ -283,8 +285,8 @@ img {
   text-align: right;
 }
 .player-container {
-  opacity: 2;
-  width: 75%;
+  opacity: 999;
+  width: 100%;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -309,29 +311,7 @@ img {
   font-size: 2rem;
 }
 
-.pagination {
-  padding: 1rem 0rem;
-  margin: auto;
-  width: 60%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
 
-.pagination-btn {
-  width: 30px;
-  height: 30px;
-  background-color: rgb(34, 34, 34);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.pagination-section {
-  width: 100%;
-  background-color: black;
-}
 
 .card-details-section {
   width: 100%;
@@ -433,7 +413,7 @@ img {
 }
 
 .footer-section {
-  margin-top: 3rem;
+  margin-top: 10rem;
   background-color: rgb(12, 12, 12);
   display: flex;
   justify-content: center;
@@ -524,6 +504,37 @@ img {
   align-items: center;
 }
 
+/* For pagination */
+.pagination-container{
+  margin:5rem auto;
+  width:70%;
+  display: flex;
+  justify-content: center;
+  gap:3rem
+}
+
+.pageNumbers{
+  list-style: none;
+  font-size: 1.6rem;
+  text-decoration: none;
+  background-color: rgb(24, 24, 24);
+  padding:1rem;
+}
+
+.btn{
+  background-color: rgb(24, 24, 24);
+  padding:0rem 1rem;
+  border:none;
+  outline: none;
+  cursor: pointer;
+}
+
+.pageNumbersActive{
+  background-color: rgb(173, 54, 54);
+}
+
+
+
 @media only screen and (max-width: 1300px) {
   .fa-bars {
     display: block;
@@ -544,6 +555,7 @@ img {
     flex-direction: column;
     text-align: left;
     transition: 0.3s ease;
+  
   }
 
   .dropdown-show {
@@ -659,10 +671,16 @@ img {
   .max-width {
     width: 100%;
   }
+
+
   .hero-section-description {
     width: 95%;
     left: 1.5rem;
     bottom: 8rem;
+  }
+
+  .hero-section-heading{
+    font-size: 2.8rem
   }
 
   .dropdown-show {
@@ -694,6 +712,9 @@ img {
   .skeleton-image {
     height: 300px;
   }
+
+
+  
 }
 
 @media only screen and (max-width: 450px) {
@@ -737,12 +758,78 @@ img {
   .skeleton-image {
     height: 220px;
   }
+
+  .pagination-container{
+    gap:2rem;
+  }
+
+  .ul-links{
+    text-align: center;
+  }
 }
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 380px){
+
+.heading{
+  font-size: 2rem;
+}
   .grid {
     grid-template-columns: repeat(auto-fit, 20rem);
     width:100%;
   }
+
+  img{
+    border-radius: 0px;
+  }
+
+  .card-title{
+    margin-top: 1rem;
+font-size: 1.9rem;
+  }
+
+
+  
   
 }
+
+@media only screen and (max-width: 340px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, 20rem);
+    width:100%;
+  }
+
+  .card-img{
+    width:100%;
+    object-position: top;
+  }
+
+  .grid{
+    grid-template-columns: 1fr;
+    gap:2rem;
+  }
+
+  
+  .footer-flex {
+    padding: 3rem 2rem;
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap:4rem;
+  }
+
+form{
+  width:50%;
+}
+
+input{
+  width: 100%;
+}
+
+.pagination-container{
+  flex-wrap: wrap;
+}
+  
+}
+

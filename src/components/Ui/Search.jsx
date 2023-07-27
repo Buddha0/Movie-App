@@ -4,7 +4,7 @@ import {  useState } from 'react';
 
 function SearchComponent() {
   
-    const [searchValue , setSearchValue] = useState()
+    const [searchValue , setSearchValue] = useState("")
  
     const navigate = useNavigate();
 

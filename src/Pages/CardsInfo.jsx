@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import SimilarMovies from "../components/SimilarMovie";
-import { fetchApiData } from "../FetchApiData";
+import { fetchApiData } from "../Api/FetchApiData";
 import React from 'react'
 import ReactPlayer from 'react-player'
 
@@ -13,18 +13,21 @@ export default function CardsInfo() {
     const [similarMovies, setSimilarMovies] = useState([])
     const [movieVideo, setMovieVideo] = useState([])
     const [showTrailer, setShowTrailer] = useState(false)
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
 
     async function fetchData() {
-        fetchApiData(`/movie/${id}?language=en-US`).then((data) => setMovieDetails(data));
-        fetchApiData(`/movie/${id}/similar?language=en-US&page=1`).then((data) => setSimilarMovies(data.results))
+        setLoading(true)
+        const movieData = await fetchApiData(`/movie/${id}?language=en-US`);
+        setMovieDetails(movieData)
+        const similarMovieData = await fetchApiData(`/movie/${id}/similar?language=en-US&page=1`)
+        setSimilarMovies(similarMovieData.results)
         fetchApiData(`/movie/${id}/videos?language=en-US`).then((data) => setMovieVideo(data.results))
         setLoading(false)
     }
 
     useEffect(() => {
         fetchData();
-    }, [id, movieDetails, similarMovies]);
+    }, [id]);
 
 
 
@@ -34,14 +37,10 @@ export default function CardsInfo() {
                 <span className="loader"></span>
             </div>
         )
-
     }
-
 
     return (
         <>
-
-
 
             <section className={`${showTrailer ? "section card-details-section-lowOpacity" : "section card-details-section"}`}>
                 <div className="card-info-background">
@@ -78,7 +77,7 @@ export default function CardsInfo() {
                                 <p className="sub-para">{movieDetails?.tagline}</p>
                                 <div className="status">
                                     <div className="play-trailer" onClick={() => setShowTrailer(!showTrailer)}>
-                                        <i class="fa-solid fa-circle-play"></i> <span>Watch Trailer</span>
+                                        <i className="fa-solid fa-circle-play"></i> <span>Watch Trailer</span>
                                     </div>
 
 
@@ -103,8 +102,7 @@ export default function CardsInfo() {
                 )}
             </section >
 
-            <SimilarMovies similarMovies={similarMovies} showTrailer={showTrailer} />
-
+            {<SimilarMovies similarMovies={similarMovies} showTrailer={showTrailer} />}
 
         </>
     );

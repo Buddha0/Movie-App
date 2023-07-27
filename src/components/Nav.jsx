@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react"
 import { NavLink, Link } from "react-router-dom"
-import Search from "./components/Search"
-import { fetchApiData } from "./FetchApiData"
+import Search from "./Ui/Search"
+import { fetchApiData } from "../Api/FetchApiData"
 
 
 export default function Nav() {
@@ -47,13 +47,15 @@ setShow(false)
                     <li><NavLink to="/" className="links">Home</NavLink></li>
                     <li><NavLink to="/popularPage" className="links">Popular</NavLink></li>
                     <li><NavLink to="/topRatedPage" className="links">TopRated</NavLink></li>
+                    <li><NavLink to="/upcomingPage" className="links">UpComing</NavLink></li>
+                    <li><NavLink to="/nowPlayingPage" className="links">NowPlaying</NavLink></li>
                     <div className="dropdown-menu" ref={menuRef} >
                         <NavLink className="links"><li onClick={() => setDropdownToggle(!dropdownToggle)}>Genres</li></NavLink>
 
                         <div className={`${dropdownToggle?"dropdown-show":"dropdown"}`}>
-                            {dropdownToggle ? genres.length > 0 && genres.map((genre) => {
+                            {dropdownToggle ? genres.length > 0 && genres.map((genre,index) => {
                                 return <span className="dropdown_links"  onClick={allToggle}>
-                                    <Link to={`/genres/${genre.id}/${genre.name}` } className="links">{genre?.name}</Link>
+                                    <Link key = {index} to={`/genres/${genre.id}/${genre.name}` } className="links">{genre?.name}</Link>
                                 </span>
 
                             }) : ""}

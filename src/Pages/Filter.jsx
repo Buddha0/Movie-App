@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import FilterCards from "../components/FilterCards"
-import { fetchApiData } from "../FetchApiData";
+import { fetchApiData } from "../Api/FetchApiData";
 export default function Filter() {
     const { name } = useParams()
     const [searchedData, setSearchedData] = useState([])
@@ -28,7 +28,7 @@ export default function Filter() {
     function DataFoundOrNot() {
 
         if (loading) {
-            return         <div className="dead-center"> <spam className = "loader"></spam></div>
+            return     <div className="dead-center"> <span className = "loader"></span></div>
     
       
         }

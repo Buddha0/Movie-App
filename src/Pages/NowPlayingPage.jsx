@@ -1,20 +1,19 @@
 import FilterCards from "../components/FilterCards"
 import { fetchApiData } from "../Api/FetchApiData";
 import Pagination from "../components/Ui/Pagination";
-
 import {useState,useEffect} from "react"
 
-export default function TopRatedPage(){
+export default function NowPlayingPage(){
 
-    const [topRatedData, setTopRatedData] = useState([])
+    const [nowPlayingData, setNowPlayingData] = useState([])
     const [page, setPage] = useState(1)
     const [loading, setIsLoading] = useState(false);
 
     async function fetchData() {
         setIsLoading(true);
         try {
-            const data = await fetchApiData(`/movie/top_rated?language=en-US&page=${page}`);
-            setTopRatedData(data.results);
+            const data = await fetchApiData(`/movie/now_playing?language=en-US&page=${page}`);
+            setNowPlayingData(data.results);
         } catch (error) {
             console.error('Error fetching data:', error);
         } finally {
@@ -41,9 +40,8 @@ export default function TopRatedPage(){
     return(
         <>
          <section className='section popular-pageSection'>
-        <FilterCards data = {topRatedData} title = {"TopRated Movies"}/>
+        <FilterCards data = {nowPlayingData} title = {"NowPlaying Movies"}/>
         <Pagination setPage={setPage} currentPage = {page}/>
-
         </section>
         </>
     )

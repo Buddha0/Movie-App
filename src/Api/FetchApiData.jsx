@@ -8,6 +8,12 @@ const options = {
   };
   
 export async function fetchApiData(url){
-const {data} = await axios.get(`${baseURL}${url}`,options) 
-return data
+try{
+  const {data} = await axios.get(`${baseURL}${url}`,options) 
+  return data
+}
+catch(error){
+  console.log(error)
+}
+
 }

@@ -13,9 +13,13 @@ export default function Footer() {
     ,  
     {
         name: "Upcoming Movies",
-        link:"/"
+        link:"/upcomingPage"
+    },
+    {
+        name: "NowPlaying Movies",
+        link:"/nowPlayingPage"
     }
-
+   
 
 ]
 function scroolToTop(){
@@ -30,16 +34,12 @@ function scroolToTop(){
                     </h1>
                 <div className="footer-flex">
        
-                   
-
-                    
+                     
                     <div className="footer-movies">
                         <h1 className="footer-title">Movies</h1>
                         {movies.map((x,index)=>{
-                           return<Link to ={x.link} className="links" onClick={scroolToTop}><p className = "footer-small" key = {index}>{x.name}</p></Link> 
+                           return<Link to ={x.link} className="links" onClick={scroolToTop} key={index}><p className = "footer-small" key = {index}>{x.name}</p></Link> 
                         })}
-                      
-
                     </div> 
 
                  
