@@ -11,7 +11,7 @@ export default function NowPlayingCards({ responsive, nowPlayingData }) {
               <h1 className='heading'>Now Playing Movies</h1>
               <Carousel responsive={responsive} swipeable={false} draggable={false}>
                 {nowPlayingData .map((datas, index) => (
-                  <Cards key={index} datas={datas} index={index} />
+                  <Cards key={index} datas={datas} index={index}  />
                 ))}
               </Carousel>
             </div>

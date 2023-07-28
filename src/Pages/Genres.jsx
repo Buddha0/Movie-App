@@ -4,9 +4,6 @@ import { useEffect, useState } from "react";
 import FilterCards from "../components/FilterCards";
 
 
-
-
-
 export default function Genres() {
   const { id, name } = useParams();
   const [genreDetail, setGenreDetail] = useState([])
@@ -16,7 +13,7 @@ export default function Genres() {
     setIsLoading(true)
     try {
     const data = await fetchApiData(
-      `/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&with_genres=${id}`
+      `/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&with_genres=${id}&include_adult=true`
     )
     setGenreDetail(data.results)
     }

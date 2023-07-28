@@ -11,9 +11,9 @@ export default function Nav() {
     const [dropdownToggle, setDropdownToggle] = useState(false);
     const menuRef = useRef()
 
-    function allToggle(){
-    setDropdownToggle(false)
-setShow(false)
+    function allToggle() {
+        setDropdownToggle(false)
+        setShow(false)
     }
 
     useEffect(() => {
@@ -25,8 +25,8 @@ setShow(false)
 
         }
         document.addEventListener("mousedown", handler)
-        return()=>{
-            document.removeEventListener("mousedown",handler)
+        return () => {
+            document.removeEventListener("mousedown", handler)
         }
     })
 
@@ -42,7 +42,7 @@ setShow(false)
     return (
         <>
             <nav>
-                <Link to = "/" className="links"><h1 className="logo">Movie<span>Chill</span></h1></Link>
+                <Link to="/" className="links"><h1 className="logo">Movie<span>Chill</span></h1></Link>
                 <ul className={`ul-links ${show && "ul-show"} `}>
                     <li><NavLink to="/" className="links">Home</NavLink></li>
                     <li><NavLink to="/popularPage" className="links">Popular</NavLink></li>
@@ -52,10 +52,10 @@ setShow(false)
                     <div className="dropdown-menu" ref={menuRef} >
                         <NavLink className="links"><li onClick={() => setDropdownToggle(!dropdownToggle)}>Genres</li></NavLink>
 
-                        <div className={`${dropdownToggle?"dropdown-show":"dropdown"}`}>
-                            {dropdownToggle ? genres.length > 0 && genres.map((genre,index) => {
-                                return <span className="dropdown_links"  onClick={allToggle}>
-                                    <Link key = {index} to={`/genres/${genre.id}/${genre.name}` } className="links">{genre?.name}</Link>
+                        <div className={`${dropdownToggle ? "dropdown-show" : "dropdown"}`}>
+                            {dropdownToggle ? genres.length > 0 && genres.map((genre, index) => {
+                                return <span className="dropdown_links" onClick={allToggle}>
+                                    <Link key={index} to={`/genres/${genre.id}/${genre.name}`} className="links">{genre?.name}</Link>
                                 </span>
 
                             }) : ""}
@@ -64,7 +64,7 @@ setShow(false)
 
                 </ul>
                 <Search />
-                
+
                 <i className="fa-solid fa-bars" onClick={() => setShow(!show)} ></i>
             </nav>
         </>

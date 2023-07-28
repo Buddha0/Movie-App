@@ -7,12 +7,13 @@ export default function NowPlayingPage(){
 
     const [nowPlayingData, setNowPlayingData] = useState([])
     const [page, setPage] = useState(1)
+    const [pages, setPages] = useState(20)
     const [loading, setIsLoading] = useState(false);
 
     async function fetchData() {
         setIsLoading(true);
         try {
-            const data = await fetchApiData(`/movie/now_playing?language=en-US&page=${page}`);
+            const data = await fetchApiData(`/movie/now_playing?language=en-US&page=${page}&include_adult=true`);
             setNowPlayingData(data.results);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -41,7 +42,7 @@ export default function NowPlayingPage(){
         <>
          <section className='section popular-pageSection'>
         <FilterCards data = {nowPlayingData} title = {"NowPlaying Movies"}/>
-        <Pagination setPage={setPage} currentPage = {page}/>
+        <Pagination setPage={setPage} currentPage = {page} pages = {pages}/>
         </section>
         </>
     )

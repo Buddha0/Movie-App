@@ -1,10 +1,15 @@
 
 
 import React from 'react';
+import { useEffect } from 'react';
 
-const Pagination = ({ setPage, currentPage }) => {
+const Pagination = ({ setPage, currentPage,pages }) => {
+
+  useEffect(()=>{
+console.log(pages)
+  },[pages])
+
   const totalPages = [];
-  const pages = 500; // Total number of pages
   const pageSize = 4; // Number of pages to display at a time
 
   for (let i = 1; i <= pages; i++) {
@@ -49,6 +54,7 @@ const Pagination = ({ setPage, currentPage }) => {
   return (
     <>
       <div className='pagination-container'>
+        <button className='btn' onClick={()=>setPage(1)}>First</button>
         <button className='btn btn-previous' onClick={handlePrevious}>
           Previous
         </button>
@@ -65,6 +71,7 @@ const Pagination = ({ setPage, currentPage }) => {
         <button className='btn btn-next' onClick={handleNext}>
           Next
         </button>
+        <button className='btn' onClick={()=>setPage(pages)}>Last</button>
       </div>
     </>
   );

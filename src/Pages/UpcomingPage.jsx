@@ -8,6 +8,7 @@ import { fetchApiData } from "../Api/FetchApiData"
 export default function UpcomingPage() {
     const [upComingData, setUpComingData] = useState([])
     const [page, setPage] = useState(1)
+    const [pages, setPages] = useState(15)
     const [loading, setIsLoading] = useState(false);
 
     async function fetchData() {
@@ -42,7 +43,7 @@ export default function UpcomingPage() {
     return (
         <section className='section popular-pageSection'>
             <FilterCards data={upComingData} title={"Upcoming Movies"} />
-            <Pagination setPage={setPage} currentPage = {page}/>
+            <Pagination setPage={setPage} currentPage = {page} pages = {pages}/>
         </section>
 
     )
