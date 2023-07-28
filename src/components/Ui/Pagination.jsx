@@ -1,14 +1,10 @@
 
-
 import React from 'react';
-import { useEffect } from 'react';
+
 
 const Pagination = ({ setPage, currentPage,pages }) => {
 
-  useEffect(()=>{
-console.log(pages)
-  },[pages])
-
+ 
   const totalPages = [];
   const pageSize = 4; // Number of pages to display at a time
 
@@ -56,7 +52,7 @@ console.log(pages)
       <div className='pagination-container'>
         <button className='btn' onClick={()=>setPage(1)}>First</button>
         <button className='btn btn-previous' onClick={handlePrevious}>
-          Previous
+          Prev
         </button>
         {totalPages.slice(startPage - 1, endPage).map((page) => (
           <a
